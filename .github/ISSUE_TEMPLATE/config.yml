@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: General discussion and comments
+    url: https://github.com/fitzyracing1/new-space-station/discussions
+    about: Open-ended comments on the new station are best posted in Discussions.

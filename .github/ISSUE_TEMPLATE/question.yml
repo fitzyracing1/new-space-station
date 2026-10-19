@@ -1,0 +1,15 @@
+name: Question
+description: Ask a question about the station concept
+title: "[Question] "
+labels: ["question"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+    validations:
+      required: true
+  - type: input
+    id: section
+    attributes:
+      label: Related section (optional)

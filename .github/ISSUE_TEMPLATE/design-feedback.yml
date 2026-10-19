@@ -1,0 +1,43 @@
+name: Design feedback
+description: Comment on a specific part of the station design
+title: "[Feedback] "
+labels: ["design feedback"]
+body:
+  - type: input
+    id: section
+    attributes:
+      label: Section of the concept design
+      description: e.g. "§6.3 Array sizing" or "§11 Launch sequence"
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Orbit / mission
+        - Architecture / modules
+        - Structures / volume
+        - Life support (ECLSS)
+        - Power / thermal
+        - GNC / propulsion
+        - Communications
+        - Crew safety / radiation / MMOD
+        - Launch & assembly
+        - Mass / power budgets
+        - Cost / schedule / business
+        - NASA CLDC alignment
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: feedback
+    attributes:
+      label: Your feedback
+      description: What is wrong, missing, or could be better? Numbers and sources are very welcome.
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested change (optional)
