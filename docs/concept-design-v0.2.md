@@ -26,7 +26,7 @@ Every number is an **engineering estimate** unless it is labelled as a published
 | Science | "≥12 racks" | **Mapped to NASA Table 1.5-1 Category 3:** 58 locker locations (40 heritage-compatible), 3 rack-equivalent spaces, 12 powered payloads, 150 CTBE, 150 L cold stowage, vacuum/O₂/N₂ ports, glovebox, workbench | 5A |
 | First launch | ≈2033 baseline | **Planning baseline: Q4 2032. Compressed option: Q4 2030 (low likelihood)** | 13 |
 | Cost to full capability | \$4–6 B | **≈\$4–7 B** (ROM) | 13 |
-| New sections | — | Mission A, B and Standard phasing; transport; teaming and past performance; NASA-aligned funding; compliance matrix | 5B, 11A, 13A, 13B, 16 |
+| New sections | — | Mission A, B and Standard phasing; transport; teaming and past performance; NASA-aligned funding; compliance matrix; ISS relationship and transition | 5B, 11A, 11B, 13A, 13B, 16 |
 
 # 0. Baseline assumptions (change these first)
 
@@ -340,6 +340,23 @@ The plan uses **ISS-certified vehicles only for the first 4 NASA increments** (S
 * **GFTSS:** NASA may provide up to 2 crew and 4 cargo flights per year for the first 4 increments (SOW §2.17.3, p. 39), but no more than 1 crew and 2 cargo flights per increment (J-15, p. 259). Ping Lite prices **end-to-end service with GFTSS as an option** for the first 4 increments. The commercial rotations are always contractor-provided, because GFTSS is not offered for private astronaut missions (SOW p. 40).
 * **Redundancy:** IDSS and CBM ports allow dissimilar crew and cargo vehicles (SOW §2.17.7). Stored consumables cover ≥6 months without resupply at 4 crew.
 * **Required at proposal:** Letters of Intent from each crew and cargo transport provider covering flight rate, capability and pricing (RFP L.17.3.1 TA.1(5)(B), p. 299). **None exist yet.**
+
+# 11B. ISS relationship and transition
+
+Source for all ISS facts and numbers in this section: `trade-save-iss.md` (19 Oct 2026), which cites NASA, GAO, OIG and ESA documents. **Ping Lite does not propose to save, boost, take over or dock with the ISS.** The proposal treats NASA's plan as fixed: last ISS crew departs mid-2030, US Deorbit Vehicle (USDV) reentry notionally Jan 2031 (trade-save-iss §1). Ping Lite's planning launch is Q4 2032, so on the baseline the two stations never overlap.
+
+**ISS-extension compatibility (unpriced, ≈½ page in the proposal).**
+
+* Ping Lite flies at **420 km / 51.6°** (Section 2), the same inclination as the ISS and within its altitude band (≈415 km). It uses the same **IDSS docking and CBM-type berthing** interfaces and the same ISS-certified crew and cargo vehicles (Crew Dragon, Cargo Dragon, Cygnus; Section 11A).
+* GAO reports that NASA will decide in **2027** whether to launch the USDV in 2029 or extend ISS operations, and NASA says the USDV can wait on the ground during an extension (trade-save-iss §1, §4.1).
+* **If NASA extends the ISS to ≈2032–33**, Ping Lite could overlap with it. Possible uses: crew handover with no gap in continuous presence, shared crew and cargo traffic planning, and moving small NASA hardware between the stations by visiting vehicle. Ping Lite needs **no added hardware** for this, and the offer depends on nothing NASA has not already planned.
+* Ping Lite does **not** depend on an extension. It also has **no** propulsive proximity-operations capability to dock with the ISS. Adding one is not proposed (trade-save-iss option O7: not feasible on the baseline schedule).
+
+**Option 1: host legacy ISS research hardware (optional, priced separately if NASA asks).** Ping Lite offers to accept NASA-owned ISS research hardware that has been returned to the ground, or stored on Axiom's PPTM. NASA asked for PPTM partly to save ISS equipment (trade-save-iss §5, O5). This would use the 40 heritage-compatible locker positions (Section 5A, CLDP-STD-1102) and the 3 rack-equivalent bays, subject to recertification for Ping Lite power, data and thermal interfaces. **Cost and the list of eligible hardware are to be determined** (no estimate yet).
+
+**Option 2: early subsystem demonstration before mid-2030 (optional).** Fly selected Ping Lite subsystems (candidates: an ECLSS sub-assembly, avionics or a structural/MMOD coupon) as **payloads on the ISS, or on Axiom Station**, before the last ISS crew leaves in mid-2030. Purpose: flight heritage and risk reduction for Mission A certification (Section 5B) without a second spacecraft development. A dedicated bridge element was assessed and rejected (trade-save-iss O8: estimate \$100–300 M for even a small demo element). **Payload cost is not yet estimated.** The go/no-go decision belongs in the teaming review (Section 13A).
+
+**Not included:** ISS boost to a storage orbit, commercial takeover of the US segment, legacy-module reuse and return of modules to Earth. NASA's 2024 analysis rejected all of them, and trade-save-iss rates them low feasibility (§5, O3–O6).
 
 # 12. Mass and power budgets
 
