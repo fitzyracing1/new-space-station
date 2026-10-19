@@ -1,44 +1,46 @@
-# New Space Station: an open concept for a commercial crewed station in LEO
+# Ping Lite: an open concept for a commercial crewed station in LEO
 
 **Website:** https://fitzyracing1.github.io/new-space-station/
-**Comment on the new station:** https://github.com/fitzyracing1/new-space-station/discussions
+**Comment on the station:** https://github.com/fitzyracing1/new-space-station/discussions
 
-This is an open, early-stage (pre-Phase A) concept for a **commercially owned and operated crewed space station in low Earth orbit**, designed to carry on human presence in LEO after the International Space Station retires around 2030. It is being developed with NASA's **Commercial LEO Destination Contract (CLDC)** solicitation in mind.
+**Ping Lite** is an open, early-stage (pre-Phase A) concept for a **commercially owned and operated crewed space station in low Earth orbit**. Its purpose is to continue human presence in LEO after the International Space Station retires at the end of 2030. It is being developed with NASA's **Commercial LEO Destination Contract (CLDC)** solicitation (Final RFP 80JSC027R0004) in mind.
 
 Everything here is public so that engineers, scientists, future users and space fans can review it and help improve it.
 
-## The station at a glance (concept v0.1, all values estimates)
+## The station at a glance (concept v0.2, all values estimates)
 
 | | |
 |---|---|
+| Architecture | **One integrated core station**: 7.2 m diameter, 5 decks, about 17 m long, outfitted on the ground |
+| Launch | **One Starship launch** (the v0.1 design used 5 Falcon launches; a modular Falcon-class design is kept as a fallback) |
 | Orbit | 420 km circular, 51.6° inclination (ISS band) |
-| Crew | 4 permanent, up to 8 for 30 days or less |
-| Elements | 5: Core-Node, Habitat, Lab & Manufacturing, Airlock, Power & Thermal Truss |
-| Pressurized volume | about 485 m³ (about 265 m³ habitable) |
-| Power | about 35 kW orbit-average at end of life (12 kW for payloads) |
-| Launches | 5 (3 Falcon Heavy + 2 Falcon 9) |
-| Mass | about 84 t including growth allowance |
-| Cost to full capability | about $4–6 B (rough order of magnitude) |
-| First launch | about 2033 baseline (about 2032 aggressive) |
+| Crew | **6 permanent (4 government + 2 commercial)**, up to 10 for 30 days or less |
+| Pressurized volume | about 560 m³ (about 305 m³ habitable) |
+| Power | about 55 kW orbit-average at end of life (6 × 75 m² solar wings; 18 kW for payloads) |
+| NASA science | Sized to NASA Category 3: 58 locker locations (40 heritage-compatible), 3 rack-equivalent spaces, 12 powered payloads, about 170 L cold stowage, vacuum, O₂ and N₂ ports, glovebox, workbench |
+| Ports | 4 IDSS docking + 2 berthing. Crew Dragon, Cargo Dragon and Cygnus |
+| Launch mass | about 93 t including 25% growth allowance |
+| Cost to operational station | about $4–7 B (rough order of magnitude) |
+| Launch date | about Q4 2032 planning baseline. A compressed option (Q4 2030) is rated low likelihood |
+
+Main open risks: Starship payload capability (the station is about 93 t, while 2026 test flights carried about 35–40 t), how the station is carried in and released from the Starship payload bay, the single-launch single point of failure, and NASA launch-vehicle category rules.
 
 ## Documents
 
-* [`docs/concept-design-v0.1.pdf`](docs/concept-design-v0.1.pdf): the full 19-page concept design
-* [`docs/concept-design-v0.1.md`](docs/concept-design-v0.1.md): the same content in Markdown (easy to comment on and diff)
+* [`docs/concept-design-v0.2.pdf`](docs/concept-design-v0.2.pdf) / [`.md`](docs/concept-design-v0.2.md): **current design (v0.2, single Starship launch, NASA compliance matrix)**
+* [`docs/concept-design-v0.1.pdf`](docs/concept-design-v0.1.pdf) / [`.md`](docs/concept-design-v0.1.md): first concept (5 modules, 5 Falcon launches), kept for reference
 
 ## How to give feedback
 
-All of these are welcome:
+1. **Discussions:** open-ended comments, ideas and questions: [github.com/fitzyracing1/new-space-station/discussions](https://github.com/fitzyracing1/new-space-station/discussions)
+2. **Issues:** specific, actionable design feedback (use the *Design feedback* or *Question* templates)
+3. **Pull requests:** corrections or edits to the Markdown design documents
 
-1. **Discussions:** for open-ended comments, ideas and questions: [github.com/fitzyracing1/new-space-station/discussions](https://github.com/fitzyracing1/new-space-station/discussions)
-2. **Issues:** for specific, actionable design feedback, use the *Design feedback* or *Question* templates.
-3. **Pull requests:** to propose a correction or edit to the Markdown design document.
-
-Please cite the section number (for example "§6.3 Array sizing") when you comment on a specific number. Constructive criticism of the assumptions (§0) is especially useful.
+Please cite the section number (for example "v0.2 §5A Science accommodations") when you comment on a specific number.
 
 ## Status and disclaimer
 
-This is an independent concept study. It is **not affiliated with or endorsed by NASA** or any company named in it. Figures from real programs are labelled. Everything else is an engineering estimate and will change.
+This is an independent concept study. It is **not affiliated with or endorsed by NASA, SpaceX or any company named in it**, and no partnership or agreement with any of them exists. Figures from real programs are labelled. Everything else is an engineering estimate and will change.
 
 Contact: Fitzyracing1@gmail.com
 
