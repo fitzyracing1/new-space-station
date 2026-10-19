@@ -7,6 +7,8 @@
 
 Everything here is public so that engineers, scientists, future users and space fans can review it and help improve it.
 
+- **Flight software v0.1 (prototype, not certified):** [`software/`](software/README.md), NASA cFS-based, MIT.
+
 ## The station at a glance (concept v0.2, all values estimates)
 
 | | |

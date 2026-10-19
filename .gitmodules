@@ -1,0 +1,3 @@
+[submodule "software/cFS"]
+	path = software/cFS
+	url = https://github.com/nasa/cFS

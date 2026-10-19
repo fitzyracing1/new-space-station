@@ -1,0 +1,51 @@
+# SPDX-License-Identifier: MIT
+name: software-ci
+on:
+  push:
+    paths: ["software/**", ".github/workflows/software-ci.yml", ".gitmodules"]
+  pull_request:
+    paths: ["software/**", ".github/workflows/software-ci.yml", ".gitmodules"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build-test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install tools
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q build-essential cmake
+          pip install -r software/sim/requirements.txt
+      - name: Shadow-mode static check (SR-SW-001)
+        run: python3 software/scripts/check_shadow_mode.py
+      - name: C unit tests (logic modules, -Werror, gcov)
+        run: make -C software/tests/c test
+      - name: Python harness tests (includes host shadow scenario)
+        working-directory: software/sim
+        run: python3 -m pytest -v tests
+      - name: Build NASA cFS v7.0.1 + Ping Lite apps (native Linux)
+        run: software/scripts/build_cfs.sh
+      - name: Scripted shadow-mode scenario on cFS (synthetic telemetry)
+        run: software/scripts/run_shadow_scenario.sh
+      - name: Coverage summary
+        if: always()
+        run: |
+          cd software/tests/c
+          for p in eclss:pl_eclss pwrth:pl_pwrth ops:pl_ops tlm:pl_tlm; do
+            t=${p%%:*}; m=${p##*:}
+            echo -n "$m logic line coverage (unit tests): "
+            gcov -n -o build build/test_$t-${m}_logic.gcda | grep -A1 "${m}_logic.c'" | tail -1
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: shadow-scenario-log
+          path: software/build/shadow_scenario.log

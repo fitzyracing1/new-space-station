@@ -424,11 +424,13 @@ Source for all ISS facts and numbers in this section: `trade-save-iss.md` (19 Oc
 
 | When | Step |
 |---|---|
-| **By ≈31 Oct 2026** | Submit a GTA request (L-05) for Government IV&V support and JSC SDIL/simulation access through the L-06 points of contact. Confirm the IV&V route with NASA (Q16) |
+| **By ≈31 Oct 2026** | Submit a GTA request (L-05) for Government IV&V support and JSC SDIL/simulation access through the L-06 points of contact. Confirm the IV&V route with NASA through the CLDC question process |
 | Nov–Dec 2026 (proposal) | Name Class A software items; give the SOW §2.11.2 plan outline (independent IV&V provider, or the Government via J-14); base the architecture on cFS (estimate: reduces new code; not quantified) |
 | 2027 (award + 0–12 months) | Reimbursable SAA with the IV&V Program if early IV&V is wanted before the GTA is active; IV&V of requirements and design to meet the J-11 pre-CDR software item |
 | 2027–2029 | Flight-equivalent software-in-the-loop and hardware-in-the-loop simulator; end-to-end runs before each integrated test (Starliner lesson); Option 2 shadow-mode demo through the host and ISS payload safety review (Section 11B) |
 | 2030–2032 | IV&V of code and test results to certification; end-to-end test before launch and before each NASA increment |
+
+**Prototype software:** an open-source v0.1 prototype built on cFS v7.0.1 is in the repository under `software/`. It contains ECLSS fault detection in shadow mode, a power and thermal scheduler, an uncrewed-ops supervisor and a telemetry/SEU logger, with CI. It is **not certified** and is intended as the object of an early independent assessment.
 
 **Cost: TBD.** No public price exists for IV&V Program or JSC reimbursable support. Reimbursable SAAs are billed at NASA's cost under NPR 9090.1, and NASA may waive costs.
 

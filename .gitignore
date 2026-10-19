@@ -1,0 +1,6 @@
+software/build/
+software/tests/c/build/
+software/tests/c/*.gcda
+software/tests/c/*.gcno
+__pycache__/
+.pytest_cache/

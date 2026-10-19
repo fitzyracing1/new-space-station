@@ -1,0 +1,20 @@
+Ping Lite flight software v0.1
+Copyright (c) 2026 Joshua Almeida
+Ping Lite code in software/ (apps/, sim/, tests/, scripts/, mission/, docs/) is
+licensed under the MIT License (software/LICENSE).
+
+This project builds on the NASA Core Flight System (cFS):
+  software/cFS  ->  https://github.com/nasa/cFS  (git submodule, pinned to tag v7.0.1)
+cFS is Copyright (c) the United States Government as represented by the
+Administrator of the National Aeronautics and Space Administration, and is
+licensed under the Apache License, Version 2.0 (software/cFS/LICENSE).
+cFS is used unmodified; Ping Lite adds separate apps and mission definition
+files that are overlaid onto a scratch copy at build time (scripts/build_cfs.sh).
+
+Use of cFS does not imply NASA endorsement of Ping Lite. "NASA" and "cFS" are
+used only to identify the upstream software.
+
+The optional ISSLive adapter (sim/plsim/isslive.py) reads the public ISS
+telemetry feed relayed by Lightstreamer; item identifiers are taken from the
+ISS-Mimic project (https://github.com/ISS-Mimic/Mimic). No code is copied from
+either project.
