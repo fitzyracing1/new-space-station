@@ -1,7 +1,7 @@
 ---
 title: "Ping Lite trade study: could the ISS be saved, and how would it fit with Ping Lite?"
 subtitle: "ISS end-of-life options rated on feasibility, cost, schedule and risk, and what they mean for the 2030–2032 gap and the CLDC proposal"
-date: "19 October 2026, draft 1 (internal, not for release)"
+date: "19 October 2026, draft 2"
 ---
 
 # How to read this document
@@ -112,7 +112,7 @@ Rating scale (judgement by this study): **feasibility** High/Med/Low; **cost** t
 ## 6.2 Does a bridge mission or ISS docking help?
 
 * **ISS docking/handover (O7): no.** It is physically impossible on the baseline and depends on a NASA extension (O2) that Ping Lite cannot influence. It also needs a propulsive, certified visiting-vehicle capability the v0.2 station does not have.
-* **Bridge payload/element on ISS (O8): weak.** It would earn some A&C and past-performance credit but splits a small team across two developments. It is better served by flying Ping Lite subsystems as ISS or Axiom payloads (estimate/judgement).
+* **Bridge payload/element on ISS (O8): weak.** It would earn some A&C and past-performance credit but splits a small team across two developments. It is better served by flying **Ping Lite flight software** on a computer already hosted on the ISS or Axiom: HPE Spaceborne Computer-2, Axiom AxDCU-1, or Voyager's Space Edge unit [S21–S26]. That gives flight evidence for the CLDC software requirements (SOW §§2.10.3, 2.11.2, 2.15.4; NPR 7150.2 and NASA-STD-8739.8B [S27–S28]) with no new hardware (judgement; detail in concept-design-v0.2 §11B).
 * **ISS extension (O2): helpful if it happens, and free to us.** If NASA extends to 2031–32, Ping Lite's 420 km / 51.6° orbit and IDSS/CBM ports (v0.2 A9–A10) mean NASA could run a short overlap or move small hardware. Proposal text should say so without depending on it.
 * **ISS hardware reuse (O5/O6 variant): cheap and credible.** Ping Lite can offer to host NASA-owned research hardware returned to the ground or held on Axiom PPTM, subject to certification. Rack and locker interfaces are already ISS-heritage-compatible in v0.2 §5A (Mission A: 2 heritage-compatible lockers).
 
@@ -124,13 +124,13 @@ Rating scale (judgement by this study): **feasibility** High/Med/Low; **cost** t
 | ISS docking before deorbit | **No** | Impossible on our schedule |
 | "ISS-extension compatibility" statement (co-orbital, IDSS, can overlap if NASA extends) | **Yes, unpriced, ½ page** | Low cost; shows awareness of NASA's 2027 decision [S3] |
 | Hosting heritage ISS research hardware | **Yes, as an option** | Supports NASA's equipment-salvage aim [S17]; uses v0.2 heritage interfaces |
-| Subsystem demo payload on ISS/Axiom before 2030 | **Maybe, as risk reduction** | Only if cheap; decide in the teaming review |
+| Flight-software demo on a hosted ISS/Axiom computer before mid-2030 | **Yes, as an option** | Software only: ECLSS FDIR, crew-off autonomy, power and thermal scheduling, avionics stack, run in shadow mode. Cost TBD |
 
 # 7. Recommendation
 
 1. **Treat ISS deorbit in early 2031 as fixed** for the proposal; do not propose to save, boost, take over or dock with the ISS.
 2. **Add one unpriced paragraph** on ISS-extension compatibility, and an **option to host heritage ISS research hardware**.
-3. **Do not fund a bridge element.** If a demo is wanted, fly Ping Lite ECLSS or avionics as an ISS/Axiom payload before mid-2030.
+3. **Do not fund a bridge element.** The early demo is **software only**: fly Ping Lite flight software (ECLSS FDIR, crew-off autonomy, power and thermal scheduling, avionics stack) in shadow mode on an existing hosted computer (HPE SBC-2, Axiom or Voyager) before mid-2030. Cost TBD.
 4. **Close the gap through schedule and teaming, not the ISS:** pursue the compressed Q4 2030 path or the SpaceX hab-Starship discussion (trade-starship-cluster.md), and be ready to explain in the proposal how Ping Lite fits after Axiom and Vast.
 5. **Watch the 2027 NASA extension decision** [S3]; if NASA extends to 2032, revisit O7 as a handover and overlap mission.
 
@@ -158,5 +158,14 @@ Rating scale (judgement by this study): **feasibility** High/Med/Low; **cost** t
 | S18 | Axiom Space release, "Axiom Space Accelerates Axiom Station Assembly", Dec 2024 | PPTM-first sequence; free-flyer 2028 |
 | S19 | Carrier Space, "Axiom Station Explained", Oct 2026 (secondary; reports Axiom's latest update) | First module launch 2028 |
 | S20 | Vast, "Vast Advances Haven-1 Into Integration Phase" | Haven-1 Q1 2027 target |
+| S21 | HPE, Spaceborne Computer page and 30 Jan 2024 release "HPE Spaceborne Computer-2 returns to the ISS" | SBC-2 open to proposals via ISS National Lab |
+| S22 | ISS National Lab, "HPE Space-based Computing Achieves Significant Milestone", 5 Apr 2022 | Containerised code pushed to SBC-2 |
+| S23 | BruhnBruhn Innovation, "Cloud-native AI runs in orbit for the first time", 11 Aug 2025 | k3s workload deployed by git push, 24 Jul 2025 |
+| S24 | ISS National Lab, "Orbital Data Center Launching to ISS…", 19 Aug 2025; Axiom, "Orbital Data Centers" and AxODC Node ISS release, 16 Sep 2025; TechRadar | AxDCU-1 on CRS-33; MicroShift; rollback; Node ISS in 2027 |
+| S25 | Voyager, Bishop Airlock, Mission Management and Space Edge pages; Red Hat/Voyager release, 11 May 2026 | Hosted payloads; RHEL 10.1 on the ISS Space Edge unit; SHIRE |
+| S26 | AWS News Blog, "How We Sent an AWS Snowcone into Orbit", 2022; GeekWire, 2022 | 7-month safety review; SSH; 7 GB model uplink |
+| S27 | NASA Software Engineering Handbook (swehb.nasa.gov), SWE-020 and §7.24 (NPR 7150.2D Appendix D) | Class A definition; human-rating software |
+| S28 | NPR 7150.2C §3.6.1 (SWE-022); CLDC SOW §2.11.2 | Software assurance per NASA-STD-8739.8 |
+| S29 | Lightstreamer ISSLive demo and client (github.com/Lightstreamer) | Public ISS telemetry stream |
 | — | CLDC RFP 80JSC027R0004 (SOW §1.0); Ping Lite concept-design-v0.2.md; trade-starship-cluster.md | Requirements and Ping Lite baseline |
 | — | **All other numbers** | **Estimates by this study** |

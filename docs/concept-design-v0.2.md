@@ -354,7 +354,41 @@ Source for all ISS facts and numbers in this section: `trade-save-iss.md` (19 Oc
 
 **Option 1: host legacy ISS research hardware (optional, priced separately if NASA asks).** Ping Lite offers to accept NASA-owned ISS research hardware that has been returned to the ground, or stored on Axiom's PPTM. NASA asked for PPTM partly to save ISS equipment (trade-save-iss §5, O5). This would use the 40 heritage-compatible locker positions (Section 5A, CLDP-STD-1102) and the 3 rack-equivalent bays, subject to recertification for Ping Lite power, data and thermal interfaces. **Cost and the list of eligible hardware are to be determined** (no estimate yet).
 
-**Option 2: early subsystem demonstration before mid-2030 (optional).** Fly selected Ping Lite subsystems (candidates: an ECLSS sub-assembly, avionics or a structural/MMOD coupon) as **payloads on the ISS, or on Axiom Station**, before the last ISS crew leaves in mid-2030. Purpose: flight heritage and risk reduction for Mission A certification (Section 5B) without a second spacecraft development. A dedicated bridge element was assessed and rejected (trade-save-iss O8: estimate \$100–300 M for even a small demo element). **Payload cost is not yet estimated.** The go/no-go decision belongs in the teaming review (Section 13A).
+**Option 2: early flight-software demonstration before mid-2030 (optional).** The early demo is **software only**: Ping Lite flight software runs on a computer already hosted on the ISS (or on Axiom's), before the last ISS crew leaves in mid-2030. It flies no Ping Lite hardware and needs no second spacecraft. A dedicated bridge element was assessed and rejected (trade-save-iss O8: estimate \$100–300 M for even a small demo element). Sources are listed in trade-save-iss Appendix A (S21–S29).
+
+*Proven ways to fly software on the ISS:*
+
+| Host | What it has shown | Source |
+|---|---|---|
+| HPE Spaceborne Computer-2 (SBC-2), via ISS National Lab | Open to proposals; containerised code is built on the ground and pushed to orbit; a Kubernetes (k3s) AI workload deployed by `git push` ran on 24 Jul 2025 | HPE; ISS National Lab; BruhnBruhn |
+| Axiom AxDCU-1 (Red Hat Device Edge / MicroShift) | On ISS since CRS-33 (Aug 2025), with remote updates, automated rollback and self-healing; the larger AxODC Node ISS is planned for 2027 | ISS National Lab; Axiom; TechRadar |
+| Voyager (formerly Nanoracks) LEOcloud Space Edge micro datacenter, Bishop airlock and external platform | RHEL 10.1 deployed on the ISS unit (May 2026); hosted-payload power, data and mission ops as standard services; software-only SHIRE simulation environment | Voyager; Red Hat/Voyager |
+| AWS Snowcone (Ax-1, 2022) | Stock device passed the NASA safety review in about 7 months; operated remotely over SSH; a 7 GB model was uplinked mid-mission | AWS; GeekWire |
+
+*Software to test (flown in monitor-only or "shadow" mode, never commanding the ISS):*
+
+1. **ECLSS control and fault detection, isolation and recovery (FDIR):** run the Ping Lite algorithms against live ISS data and compare their detections with the actual events. Public ISS telemetry is streamed openly (ISSLive / Lightstreamer). Detailed ECLSS data would need a NASA data agreement (TBD).
+2. **Autonomous operations and crew-off station management:** run the planner and the safing logic through the station's real communication gaps and loss-of-signal periods. This is the case Ping Lite needs between increments (SR-22) and in crew-tended Mission A.
+3. **Power and thermal scheduling:** the Section 6–7 load scheduler, fed with real orbit, beta-angle and eclipse data.
+4. **Avionics software stack:** the operating system and container image, deployment pipeline, update and rollback, and radiation-upset logging, run on the hosted computer.
+
+*What it proves for CLDC:*
+
+* **On-orbit evidence for software management and assurance:** SOW §2.10.3 (Software Management Plan, DRD CLDC-107) and §2.11.2 (p. 24: software safety and assurance plan meeting the intent of NASA-STD-8739.8B, plus third-party IV&V).
+* **Practice with the payload software path:** SOW §2.15.4 (p. 32).
+* **Early data toward human rating:** flight ECLSS and power-control software is Class A under the NPR 7150.2 definition ("required to sustain a safe, habitable environment"). The demo does **not** certify that software, but it gives flight data for FDIR performance and for the assurance case.
+* **Past performance:** a flown Ping Lite product before 2030, from a team with no flight record today (Section 13A).
+
+*Rough schedule (estimate):*
+
+| When | Step |
+|---|---|
+| Q1–Q2 2027 | Pick the host and submit a proposal (HPE SBC-2 via ISS National Lab, Axiom, or Voyager) |
+| 2027–2028 | Develop the software and test it on the ground against recorded and public ISS telemetry |
+| 2028–2029 | Host safety and integration review. Snowcone's took about 7 months; a software-only load on an existing host is expected to be shorter, but that is not confirmed |
+| 2029 to mid-2030 | Flight runs, finishing before the last ISS crew departs. Continue on Axiom's computers after that if available |
+
+**Cost: TBD.** No host publishes a price for this service. The bridge-element figure above does not apply to this option.
 
 **Not included:** ISS boost to a storage orbit, commercial takeover of the US segment, legacy-module reuse and return of modules to Earth. NASA's 2024 analysis rejected all of them, and trade-save-iss rates them low feasibility (§5, O3–O6).
 
