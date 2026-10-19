@@ -26,7 +26,7 @@ Every number is an **engineering estimate** unless it is labelled as a published
 | Science | "≥12 racks" | **Mapped to NASA Table 1.5-1 Category 3:** 58 locker locations (40 heritage-compatible), 3 rack-equivalent spaces, 12 powered payloads, 150 CTBE, 150 L cold stowage, vacuum/O₂/N₂ ports, glovebox, workbench | 5A |
 | First launch | ≈2033 baseline | **Planning baseline: Q4 2032. Compressed option: Q4 2030 (low likelihood)** | 13 |
 | Cost to full capability | \$4–6 B | **≈\$4–7 B** (ROM) | 13 |
-| New sections | — | Mission A, B and Standard phasing; transport; teaming and past performance; NASA-aligned funding; compliance matrix; ISS relationship and transition | 5B, 11A, 11B, 13A, 13B, 16 |
+| New sections | — | Mission A, B and Standard phasing; transport; teaming and past performance; NASA-aligned funding; compliance matrix; ISS relationship and transition; NASA software testing path | 5B, 11A, 11B, 11C, 13A, 13B, 16 |
 
 # 0. Baseline assumptions (change these first)
 
@@ -391,6 +391,48 @@ Source for all ISS facts and numbers in this section: `trade-save-iss.md` (19 Oc
 **Cost: TBD.** No host publishes a price for this service. The bridge-element figure above does not apply to this option.
 
 **Not included:** ISS boost to a storage orbit, commercial takeover of the US segment, legacy-module reuse and return of modules to Earth. NASA's 2024 analysis rejected all of them, and trade-save-iss rates them low feasibility (§5, O3–O6).
+
+# 11C. NASA software testing path
+
+**Short answer: yes, NASA can test and review Ping Lite's software. There are three routes, and only the first is required.** (1) Under the CLDC contract, through insight, NASA-conducted IV&V and Government IV&V requested through a Government Task Agreement (GTA). (2) Before award, or alongside the contract, through a **reimbursable Space Act Agreement** with JSC and/or the NASA IV&V Program, which Ping Lite pays for. (3) For the Section 11B Option 2 hosted demo, through the **host's and the ISS payload safety review**. Sources are listed at the end of this section.
+
+**What the CLDC RFP requires (refs/, checked 19 Oct 2026):**
+
+* **SOW §2.10.3:** Software Management Plan, DRD CLDC-107.
+* **SOW §2.10.5 (p. 22):** provide data and support for **NASA-conducted IV&V**, as needed (Clause H.14; DRD CLDC-104).
+* **SOW §2.11.2 (p. 24):** a software safety and assurance plan meeting the **intent of NASA-STD-8739.8B** (Chapter 4 and Appendix A), plus a plan for **third-party software IV&V**. Government IV&V support may be requested through **Attachment J-14 GTAs**.
+* **SOW §2.15.4 (p. 32):** test NASA payload software against the station software.
+* **J-03 Tables J-03.2/3 (pp. 148, 153):** list **NPR 7150.2D**.
+* **J-11 (p. 177):** before CDR, deliver a summary of software requirements and design analysis "per IV&V and Software Assurance" that confirms maturity, plus preliminary software test plans.
+* **§L.17.3(f) (pp. 295–296):** GTA forms go to the Center Partnership Office points of contact (Attachment L-06) **no later than 22 days after release (≈31 Oct 2026; see Q13)**. NASA evaluates them as part of the technical and management approach.
+
+**How NASA would classify and assure it:** Ping Lite's ECLSS, power and vehicle-control software meets the NPR 7150.2D Appendix D definition of **Class A** (human-rated: "required to sustain a safe, habitable environment"). Assurance scales with class and safety criticality under NASA-STD-8739.8, and must be independent of the developers. Within NASA, IV&V under SWE-141 is tied to project category and selection, not to Class A alone. For CLDC, the contract mechanism is the SOW §2.11.2 IV&V plan.
+
+**Who could do the work:**
+
+| NASA resource | What it offers | Access route |
+|---|---|---|
+| **NASA IV&V Program, Fairmont, WV** | Full-lifecycle IV&V, independent assessments, hazard analysis, software assurance plan evaluation, security testing, and static/dynamic analysis in its JSTAR lab. Mainly serves NASA missions, but "projects outside of these requirements can also contact" it, including for "a space act agreement". It supported Commercial Crew software for SpaceX and Boeing | CLDC: Government IV&V via J-14 GTA. Pre-award: reimbursable SAA (contact listed on NASA's "Doing Business with IV&V" page) |
+| **JSC** | **Software Development and Integration Laboratory (SDIL)**: ISS flight-software integration and verification with replica onboard avionics. Simulation and Graphics Branch for real-time simulation | GTA (L-06 JSC point of contact) or reimbursable SAA. Precedent: Axiom's reimbursable SAA umbrella agreement with JSC for "services, testing, and capabilities" (SAA-24-CA-41489) |
+| **Core Flight System (cFS)** | NASA open-source flight software framework (Apache 2.0). Gateway uses it, and the cFS team is producing a **Class A-certifiable** release. A Government-use distribution is available through a Software User Agreement. The open bundle "should not be flown as is" | Download; Software User Agreement for the Government-use version |
+
+**Reimbursable vs funded SAAs:** a *reimbursable* SAA mainly benefits the partner, who pays NASA in advance for NASA goods, services or facilities "not reasonably available" commercially. A *funded* SAA moves NASA money to a partner for a NASA objective, and only after full and open competition. Testing Ping Lite software would be **reimbursable**, or would be done under the CLDC contract or a GTA.
+
+**Commercial Crew lessons (Starliner OFT, Dec 2019):** two software defects escaped testing: a mission elapsed timer that synced with Atlas V before the terminal count, and a service-module disposal-burn error that was found in flight. The joint Independent Review Team made 80 recommendations: 21 on testing and simulation (including an **end-to-end test before every flight**), 10 on software requirements and 35 on process. NASA's response was to **reassess every hazard report with software controls, review software verification plans, and check that test environments were adequate**. For Ping Lite, that means flight-equivalent end-to-end simulation, independent review of test scripts, and treating software hazard controls as an IV&V focus.
+
+**Recommended steps and timeline (estimates):**
+
+| When | Step |
+|---|---|
+| **By ≈31 Oct 2026** | Submit a GTA request (L-05) for Government IV&V support and JSC SDIL/simulation access through the L-06 points of contact. Confirm the IV&V route with NASA (Q16) |
+| Nov–Dec 2026 (proposal) | Name Class A software items; give the SOW §2.11.2 plan outline (independent IV&V provider, or the Government via J-14); base the architecture on cFS (estimate: reduces new code; not quantified) |
+| 2027 (award + 0–12 months) | Reimbursable SAA with the IV&V Program if early IV&V is wanted before the GTA is active; IV&V of requirements and design to meet the J-11 pre-CDR software item |
+| 2027–2029 | Flight-equivalent software-in-the-loop and hardware-in-the-loop simulator; end-to-end runs before each integrated test (Starliner lesson); Option 2 shadow-mode demo through the host and ISS payload safety review (Section 11B) |
+| 2030–2032 | IV&V of code and test results to certification; end-to-end test before launch and before each NASA increment |
+
+**Cost: TBD.** No public price exists for IV&V Program or JSC reimbursable support. Reimbursable SAAs are billed at NASA's cost under NPR 9090.1, and NASA may waive costs.
+
+*Sources:* CLDC RFP 80JSC027R0004 and SOW (refs/); NASA IV&V "Doing Business with IV&V" and "IV&V Capabilities & Services" pages; WV News on IV&V and Commercial Crew; NASA OIG IG-16-028; NAII 1050-1E; NASA "Partnering with NASA"; NASA SAA-24-CA-41489 (Axiom/JSC); NASA SWE Handbook (SWE-020, SWE-022, SWE-141, §7.24); NTRS 20210000650 (cFS Class A certification); github.com/nasa/cFS; NTRS 20230010525 (SDIL); NASA Simulation and Graphics Branch page; NASA blog, SpaceNews and NASASpaceflight on the Starliner OFT Independent Review Team (Feb–Jul 2020); NASA Payload Safety guide (2024).
 
 # 12. Mass and power budgets
 
